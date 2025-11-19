@@ -10,7 +10,7 @@ COPY . .
 RUN ng build --configuration production
 
 #Etapa-2 Servir via Nginx
-FROM nginx:alpineq
+FROM nginx:alpine
 COPY --from=build /app/dist/todo-app /usr/share/nginx/html  
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
