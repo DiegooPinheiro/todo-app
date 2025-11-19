@@ -1,0 +1,16 @@
+#Estapa-1 pra contruir um prjeto grande
+FROM node:18 as build
+
+WORKDIR /app 
+COPY package*.json ./
+RUN npm install -g @angular/cli
+RUN npm install
+COPY . .
+
+RUN ng build --configuration production
+
+#Etapa-2 Servir via Nginx
+FROM nginx:alpineq
+COPY --from=build /app/dist/todo-app /usr/share/nginx/html  
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

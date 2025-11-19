@@ -1,0 +1,22 @@
+<div class="todo-container">
+  <h2>Minhas Tarefas</h2>
+  
+  <div class="input-group">
+    <input 
+      type="text" 
+      [(ngModel)]="newTodo" 
+      (keyup.enter)="addTodo()"
+      placeholder="Adicione uma nova tarefa..."
+    />
+    <button (click)="addTodo()">Adicionar</button>
+  </div>
+
+  <ul class="todo-list" *ngIf="todos.length > 0">
+    <li *ngFor="let todo of todos; let i = index">
+      <span>{{ todo }}</span>
+      <button (click)="removeTodo(i)" class="remove-btn">Remover</button>
+    </li>
+  </ul>
+
+  <p *ngIf="todos.length === 0" class="empty-message">Nenhuma tarefa adicionada ainda.</p>
+</div>

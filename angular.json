@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "task-app": {
+    "todo-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "task-app:build:production"
+              "buildTarget": "todo-app:build:production"
             },
             "development": {
-              "buildTarget": "task-app:build:development"
+              "buildTarget": "todo-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,5 +86,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "79f0470d-cb06-43cf-b8a1-942d9a4a2081"
   }
 }
